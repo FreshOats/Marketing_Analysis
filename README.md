@@ -1,5 +1,7 @@
 # Ad Campaign A/B Test and Analysis
 #### by Justin R. Papreck
+https://www.kaggle.com/freshoats/ab-test-and-analysis
+
 
 ## Background
 A large company with a substantial user base plans to increase sales using a new ad to replace their existing untargeted PSA. Prior to paying for ad space on large networks, the company wants to determine whether they will get the desired returns to make the ad deployment profitable. In order to determine this, they released the new ad and existing PSA to a sample of 20,000 users, where the PSA was the control group and the new ad as the treatment group to perform A/B testing for 31 days. 
