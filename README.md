@@ -1,2 +1,4 @@
-# Marketing_Analysis
-Analysis of an Ad Campaign Leads
+# Ad Campaign A/B Test and Analysis
+#### by Justin R. Papreck
+
+
