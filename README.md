@@ -117,21 +117,24 @@ The number of nulls across all columns and rows was 0. There were 1060 clients t
 
 I used histograms to show the distribution of the other columns. The first was that of the Number of Observations by Day. This data represents the number of users that saw the maximum number of ads on that particular date, where the number 1 is the first of the month, and 30 is the thirtieth day of the month. 
 
-**[INSERT Obs_per_day HERE]**
+![Obs_per_day](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/8170ff2d-ca0e-475b-b883-f590fb3f22e1)
+
 
 This shows a uniform distribution, representing that about the same number of users saw either an ad or PSA on each day of the month, regardless of conversion. The next histogram looks at the observations during each hour of the day, on a 24 hour clock where 0 represents midnight and 23 is 11 pm. 
 
-**[INSERT Obs_per_hour HERE]**
+![Obs_per_hour](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/dcdafd52-4cb3-4bfd-8e6d-7cfb1fb707e8)
+
 
 This is definitely not a uniform distribution. It shows what seems to be two different uniform distributions, one ranging from midnight to 2 pm. The second ranging from 3 pm to midnight. The earlier group has an average close to 300 users seeing their maximum ads per hour, whereas the later group is around 1700 users seeing the maximum number of ads/psas per hour. Another obervation was that there were no data recorded from 2 to 3 pm. The next histogram looks at the number of impressions by user - the total number of ads or psas seen by that user. 
 
-**[INSERT Imps_per_user HERE]**
+![Imps_per_user](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/2f2c05c9-6c60-4686-915b-101a92a3b5b3)
+
 
 This is another interesting distribution, and upon considerable analysis, this is two overapping uniform distributions, where both groups included 5 impressions. The lower number of maximum impressions was sampled with 1000 people per group, whereas the higher numbers were about 2500 per group. The values from 5 impressions reaches 3500, which is the addition of the lower sample 1000 + the larger sample 2500. 
 
 Because these last two distributions are relatively similar in shape, with the exception of the 5 in the middle of latter, I wanted to see the numbers associated with the number of impressions and time of day. 
 
-**[INSERT Imps_per_hour HERE]**
+![Imps_per_hour](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/389cfc39-d5ef-4ed5-a18d-af3a0e51fbc0)
 
 This shows that the maximum number of ads or psas seen is around 3 during the earlier hours of the day, and 7.5 in the afternoon and evening. This implies that it is part of the design, not coincidence. To further establish this relationship, I wanted to make sure that the numbers would add up to 20000. 
 
@@ -193,9 +196,11 @@ conversion_rates.columns = ['conversion_rate', 'std_deviation', 'std_error']
 conversion_rates.style.format('{:.3f}')
 ```
 
-**[INSERT stats_table HERE]**
+![Stats_Table](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/db7b763f-712c-4edb-8bde-1f36653d051d)
 
-**[INSERT stats_graph HERE]**
+
+![Stats_graph](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/31973519-1ecf-4131-be30-d020e5c1d6a7)
+
 
 The error bars on the graph represent the standard error. While these groups look significantly different, favoring the conversion by the ads over the PSAs, I subsequently ran a Z-Test to verify this. Why a Z-Test and not a T-Test? Because with the number of observations greater than 100, the T and Z distributions are nearly identical. 
 
@@ -263,11 +268,12 @@ psas_converted = psas[psas['converted']==True]
 
 The first question I'd like to address is **How many ads to run per hour?**
 
-**[INSERT Ad_imps_Converted HERE]**
+![Ad_imps_converted](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/a33cb3dc-f089-422b-b13e-1d58b36966c1)
 
 The above figure shows the number of maximum ads run and their associated conversion rates. Because the number of maximum ads run is dependent on the time of day, it isn't surprising to see this is a bimodal distribution, with maxima at both 2 ads and 7 ads. Since the goal for the company is the run as few ads as possible to optimize profitability, running more than 7 ads during the afternoon/evening hours seems excessive without gain. 
 
-**[INSERT PSA_imps_Converted HERE]**
+![PSA_imps_converted](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/d2005ff0-6c99-4f84-8e72-54457ff53369)
+
 
 Unlike the Ad conversion distribution, it doesn't seem like there is a clear maximum in the early group, and for the later group the highest number of psas seen yielded the highest conversion rate. Even the highest conversion rate at 10 impressions per hour only yielded a 4% conversion rate, lower than the lowest conversion rate of the ads run.  
 
@@ -275,9 +281,10 @@ The next question to address is **When should the ads be run?**
 
 In the exploratory analysis, it was clearly shown that there were a lower number of users from midnight to 2 pm as well as a lower number of ads or psas shown to those users during those hours, from 1 to 5, whereas the later group had 5 to 10 ads, and many more users saw such ads and psas. However, the conversion rates somewhat normalize this since it is the mean count of conversions per total. The Conversion Rates running ads and psas are shown below, respectively. 
 
-**[INSERT Ad_imps_per_hour HERE]**
+![Ad_imps_per_hour](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/540ad9d5-9bf1-48c8-9e9f-0c7502835f04)
 
-**[INSERT psa_imps_per_hour HERE]**
+![psa_imps_per_hour](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/257c1e3f-50a2-49a6-b0a5-25a185fc37bc)
+
 
 The first thing to note is that there is no hour 14; this is the hour when no ads or psas were run. Interestingly, some of the highest conversion rates for both the PSA and the Ad was from 5 am to 6 am. Considering the standard errors shown by the error bars, it is clear that the SE for the earlier times is substantially greater than those higher than 14, and this is an artifact of the quantity of data collected for each of these sets. 
 
@@ -297,12 +304,12 @@ What this tells us is that there is an overall online presence during these time
 
 The final question is **What days should the ads be run?**
 
-**[INSERT Ad_imps_by_date HERE]**
+![Ad_imps_by_date](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/55e68439-f420-4ffa-817a-4ef6de52f67e)
 
 
 What can be seen with the ad data is that there is a clear pattern when at the start of the week* the conversion rate is lowest, and then it increases throughout the rest of the week before dropping again. This isn't a perfect pattern, and more problematic is that there is no information about which weekdays line up with the dates. We also have no idea what month or year these data come from. It would make a huge difference if this were representing July vs. December, which could explain the last week breaking the pattern. Unfortunately, without that specific information, I can't make a suggestion on which weekdays to focus on, however if these data were presented, I could inform the company to push more ads out on the particular days of the week that yield the highest conversions. The month also makes a big difference because users are more likely to be indoors and home during the winter vs. the summer. So while there is a bit of a pattern here, there isn't enough information to provide a good recommendation. 
 
-**[INSERT psa_imps_by_date HERE]**
+![psa_imps_by_date](https://github.com/FreshOats/Marketing_Analysis/assets/33167541/03fd774b-8445-4f2c-b5c1-9c1bc22fc023)
 
 A similar pattern is found here with the PSAs as with the Ad campaign, suggesting that there are definitely better days for conversion during the week, but more information is needed to determine which days. What this also indicates is that regardless of the media presented to the users, the conversion rates will be less dependent on the ad itself and more dependent on the day the potential customer decides to make a purchase. 
 
